@@ -1,5 +1,6 @@
 import { Composicion } from "./composicion";
 import { TipoComida } from "./tipoComida.enum";
+import { TipoComposicion } from "./tipoComposicion.enum";
 
 export class Comida{
 
@@ -30,6 +31,12 @@ export class Comida{
     public getcomposiciones() : Composicion[]{
         return this.composiciones
     }
-    
-    
+    public porcentajeDeProteinas(): number{
+        const comidasProteicas = this.composiciones.filter((composicion)=> composicion.gettipoComposiciones() == TipoComposicion.PROTEINAS)
+        var porcentajeProteico= 0
+        comidasProteicas.forEach(composicion =>{
+        porcentajeProteico += composicion.getporcentajes()
+        })
+        return porcentajeProteico
+    }
 }

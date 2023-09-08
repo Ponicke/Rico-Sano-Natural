@@ -20,7 +20,9 @@ export class Objetivo{
         return this.descripcion
     }
     
-    
+    public cumplido(){
+        return this.resultado
+    }
     
     
 }
